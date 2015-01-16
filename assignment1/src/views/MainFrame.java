@@ -27,13 +27,12 @@ public class MainFrame extends JFrame {
 		
 		contentPanel = new JPanel();
 		contentPanel.setToolTipText("Area for Jlist");
+		
 		partsList = new JList();
 		listTitle = new JLabel("This is the area for jlist to go");
 		contentPanel.add(partsList);
 		contentPanel.add(listTitle);
-		
-
-		
+				
 		buttonPanel = new JPanel();
 		buttonPanel.setToolTipText("Area for buttons");
 		addPartButton = new JButton("Add");
