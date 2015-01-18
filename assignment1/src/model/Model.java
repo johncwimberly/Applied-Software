@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+
 import main.*;
 
 public class Model {
@@ -14,15 +15,17 @@ public class Model {
 	}
 	
 	public void addPart(String partNum, String partName, String vendor, int quantity){
+		
 		Part part = new Part(partNum, partName, vendor, quantity);
 		partList.add(part);
 	}
 	
 	public void deletePart(Part part){
-		
+		partList.remove(part);
 	}
 	
-	public void editPart(Part part){
+	public void editPart(Part part, String partNum, String partName, 
+			String vendor, int quantity){
 		
 	}
 	
