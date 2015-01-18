@@ -2,9 +2,12 @@ package views;
 
 //import java.awt.event.ActionListener;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
 import controller.*;
+import model.*;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -12,9 +15,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+
+
 
 public class MainFrame extends JFrame {
 
+	private Model model;
 	private JButton addPartButton;
 	private JButton deletePartButton;
 	
@@ -28,9 +37,27 @@ public class MainFrame extends JFrame {
 	private String addAction = "Add";
 	private String deleteAction = "Delete";
 	
-	public MainFrame() {
+	public MainFrame(Model model) {
+		this.model = model;
+		pack();
+	
+		setVisible(true);
+		setTitle("Inventory");
+		setSize(650, 600);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		Part[] list = new Part[2];
+		list[0] = new Part("1", "screw", "Parts R Us", 4);
+		list[1] = new Part("2", "bolt", "Parts R Us", 4);
+		
+		
+		
 		/*the main panel where all panels will reside */
-		mainPanel = new JPanel();
+		mainPanel = new JPanel(new BorderLayout());
+		
+
+				
 		
 		/*this panel will house the list of items and other useful
 		 * information used on screen, that are NOT buttons
@@ -42,11 +69,19 @@ public class MainFrame extends JFrame {
 		 * little label to the list, then adding it to content
 		 * panel 
 		 */
-		partsList = new JList();
+		
+		//partsList = new JList((ListModel) model.partList); //data has type Object[]
+		partsList = new JList(list);
+		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		partsList.setLayoutOrientation(JList.VERTICAL);
+		partsList.setVisibleRowCount(10);
 		listTitle = new JLabel("This is the area for jlist to go");
-		contentPanel.add(partsList);
-		contentPanel.add(listTitle);
+		
 				
+		JScrollPane listScroller = new JScrollPane(partsList);
+		listScroller.setPreferredSize(new Dimension(300, 350));
+		contentPanel.add(listTitle);
+		contentPanel.add(listScroller);
 		
 		/*create button panel for all buttons to be nested in then
 		 * create the buttons and add them to the panel
@@ -81,12 +116,7 @@ public class MainFrame extends JFrame {
 		 * and location (setLocationRelativeTo(null)) gives
 		 * centered location to frame on any screen when run
 		 */
-		pack();
-		setVisible(true);
-		setTitle("Inventory");
-		setSize(250, 250);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 	}
 
 	/* the buttons on this page will look to this

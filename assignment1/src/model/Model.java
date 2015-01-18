@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Model {
 
-	private ArrayList<Part> partList = null;
+	public ArrayList<Part> partList = null;
 	
 	//Test Parts
 	private Part part1 = new Part("1", "screw", "Parts R Us", 4);
