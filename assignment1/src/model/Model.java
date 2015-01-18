@@ -5,5 +5,11 @@ import main.*;
 
 public class Model {
 
-	private ArrayList<Part> parts = new ArrayList<Part>();
+	private ArrayList<Part> parts = null;
+	
+	public Model(){
+		
+		parts = new ArrayList<Part>();
+	
+	}
 }
