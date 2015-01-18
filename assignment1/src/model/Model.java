@@ -13,6 +13,8 @@ public class Model {
 	public Model(){
 		
 		partList = new ArrayList<Part>();
+		
+		//Test Parts added to list
 		partList.add(part1);
 		partList.add(part2);
 		System.out.println(listParts(partList));

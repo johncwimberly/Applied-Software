@@ -50,9 +50,9 @@ public class Part {
 	public String toString(){
 		
 		String partInfo = 	"Part Number: " + partNum + 
-							"\nPart Name: " + partName +
-							"\nVendor: " + vendor +
-							"\nQuantity: " + quantity + "\n\n";
+							", Part Name: " + partName +
+							", Vendor: " + vendor +
+							", Quantity: " + quantity + "\n";
 		
 		return partInfo;
 	}
