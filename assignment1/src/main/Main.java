@@ -10,7 +10,6 @@ public class Main {
 		
 		Model model = new Model();
 		MainFrame mainWindow = new MainFrame();
-		Model model = new Model();
 		MainController controller = new MainController(model, mainWindow);
 		
 	}
