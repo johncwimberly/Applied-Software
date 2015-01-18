@@ -39,8 +39,8 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame(Model model) {
 		this.model = model;
+		
 		pack();
-	
 		setVisible(true);
 		setTitle("Inventory");
 		setSize(650, 600);
@@ -51,43 +51,28 @@ public class MainFrame extends JFrame {
 		list[0] = new Part("1", "screw", "Parts R Us", 4);
 		list[1] = new Part("2", "bolt", "Parts R Us", 4);
 		
-		
-		
-		/*the main panel where all panels will reside */
-		mainPanel = new JPanel(new BorderLayout());
-		
 
+		
+		/*setting up space for the list of items and giving a 
+		 * little label to the list, then adding it to content
+		 * panel 
+		 */
+		partsList = new JList(list);
+		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		partsList.setLayoutOrientation(JList.VERTICAL);
+		partsList.setVisibleRowCount(10);
 				
+		JScrollPane listScroller = new JScrollPane(partsList);
+		listScroller.setPreferredSize(new Dimension(400, 350));
+
+		
 		
 		/*this panel will house the list of items and other useful
 		 * information used on screen, that are NOT buttons
 		 */
 		contentPanel = new JPanel();
 		contentPanel.setToolTipText("Area for Jlist");
-		
-		/*setting up space for the list of items and giving a 
-		 * little label to the list, then adding it to content
-		 * panel 
-		 */
-		
-		//partsList = new JList((ListModel) model.partList); //data has type Object[]
-		partsList = new JList(list);
-		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		partsList.setLayoutOrientation(JList.VERTICAL);
-		partsList.setVisibleRowCount(10);
-		listTitle = new JLabel("This is the area for jlist to go");
-		
-				
-		JScrollPane listScroller = new JScrollPane(partsList);
-		listScroller.setPreferredSize(new Dimension(300, 350));
-		contentPanel.add(listTitle);
 		contentPanel.add(listScroller);
-		
-		/*create button panel for all buttons to be nested in then
-		 * create the buttons and add them to the panel
-		 */
-		buttonPanel = new JPanel();
-		buttonPanel.setToolTipText("Area for buttons");
 		
 		/*after creating buttons assign an action command
 		 * that will be used to determine what to do in
@@ -101,16 +86,25 @@ public class MainFrame extends JFrame {
 		deletePartButton.setToolTipText("Click to delete a part");
 		deletePartButton.setActionCommand(deleteAction);
 		
+		/*create button panel for all buttons to be nested in then
+		 * create the buttons and add them to the panel
+		 */
+		buttonPanel = new JPanel();
+		buttonPanel.setToolTipText("Area for buttons");
 		buttonPanel.add(addPartButton);
 		buttonPanel.add(deletePartButton);
-		mainPanel.add(buttonPanel);
 		
-		/*add content panel and buttons panel to main panel, all
+		listTitle = new JLabel("This is the area for jlist to go");
+		/* the main panel where all panels will reside
+		 * 
+		 * add content panel and buttons panel to main panel, all
 		 * of these reside in the main 'frame'
 		 */
+		mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(listTitle, BorderLayout.PAGE_START);
+		mainPanel.add(contentPanel, BorderLayout.CENTER);
+		mainPanel.add(buttonPanel, BorderLayout.PAGE_END);
 		this.add(mainPanel);
-		mainPanel.add(contentPanel);
-		mainPanel.add(buttonPanel);
 
 		/*unsure what pack does. Give title to the frame, size
 		 * and location (setLocationRelativeTo(null)) gives
