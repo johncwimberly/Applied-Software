@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String args[]){
 		
 		Model model = new Model();
-		MainFrame mainWindow = new MainFrame();
+		MainFrame mainWindow = new MainFrame(model);
 		MainController controller = new MainController(model, mainWindow);
 		
 	}

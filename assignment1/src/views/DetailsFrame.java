@@ -22,17 +22,14 @@ public class DetailsFrame extends JFrame{
         JLabel info = new JLabel("Some Info goes here!");
         info.setToolTipText("maybe some additional part info?");
 
-        gl.setAutoCreateGaps(true);
         gl.setAutoCreateContainerGaps(true);
         
-        gl.setHorizontalGroup(
-        		gl.createSequentialGroup()
+        gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(info)
                 .addGap(200)
         );
 
-        gl.setVerticalGroup(
-        		gl.createSequentialGroup()
+        gl.setVerticalGroup(gl.createSequentialGroup()
                 .addComponent(info)
                 .addGap(200)
         );
