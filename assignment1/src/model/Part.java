@@ -46,4 +46,14 @@ public class Part {
 	public int getQuantity(){
 		return quantity;
 	}
+	
+	public String toString(){
+		
+		String partInfo = 	"Part Number: " + partNum + 
+							"\nPart Name: " + partName +
+							"\nVendor: " + vendor +
+							"\nQuantity: " + quantity + "\n\n";
+		
+		return partInfo;
+	}
 }
