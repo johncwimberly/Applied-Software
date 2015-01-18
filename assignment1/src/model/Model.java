@@ -27,6 +27,10 @@ public class Model {
 	public void editPart(Part part, String partNum, String partName, 
 			String vendor, int quantity){
 		
+		part.setPartName(partName);
+		part.setPartNum(partNum);
+		part.setQuantity(quantity);
+		part.setVendor(vendor);
 	}
 	
 	public ArrayList<Part> getPartList(){

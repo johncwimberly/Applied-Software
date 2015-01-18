@@ -14,4 +14,36 @@ public class Part {
 		this.vendor = vendor;
 		this.quantity = quantity;
 	}
+
+	public void setPartName(String partName){
+		this.partName = partName;
+	}
+	
+	public void setPartNum(String partNum){
+		this.partNum = partNum;
+	}
+	
+	public void setVendor(String vendor){
+		this.vendor = vendor;
+	}
+	
+	public void setQuantity(int quantity){
+		this.quantity = quantity;
+	}
+	
+	public String getPartName(){
+		return partName;
+	}
+	
+	public String getPartNum(){
+		return partNum;
+	}
+	
+	public String getVendor(){
+		return vendor;
+	}
+	
+	public int getQuantity(){
+		return quantity;
+	}
 }
