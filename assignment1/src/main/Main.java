@@ -8,6 +8,7 @@ import model.*;
 public class Main {
 	public static void main(String args[]){
 		
+		Model model = new Model();
 		MainFrame mainWindow = new MainFrame();
 		Model model = new Model();
 		MainController controller = new MainController(model, mainWindow);
