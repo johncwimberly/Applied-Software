@@ -41,7 +41,6 @@ public class MainFrame extends JFrame {
 		this.model = model;
 		
 		pack();
-		setVisible(true);
 		setTitle("Inventory");
 		setSize(650, 600);
 		setLocationRelativeTo(null);
@@ -59,7 +58,7 @@ public class MainFrame extends JFrame {
 		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		partsList.setLayoutOrientation(JList.VERTICAL);
 		partsList.setVisibleRowCount(10);
-				
+		
 		JScrollPane listScroller = new JScrollPane(partsList);
 		listScroller.setPreferredSize(new Dimension(400, 350));
 
@@ -108,6 +107,7 @@ public class MainFrame extends JFrame {
 		 * and location (setLocationRelativeTo(null)) gives
 		 * centered location to frame on any screen when run
 		 */
+		setVisible(true);
 
 	}
 
