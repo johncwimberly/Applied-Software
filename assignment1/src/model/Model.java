@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Model {
 
-	public ArrayList<Part> partList = null;
+	private ArrayList<Part> partList = null;
 	
 	//Test Parts
-	private Part part1 = new Part("1", "screw", "Parts R Us", 4);
+	private Part part1 = new Part("1", "screw", "Stuff and Stuff", 4);
 	private Part part2 = new Part("2", "bolt", "Parts R Us", 4);
 
 	public Model(){
