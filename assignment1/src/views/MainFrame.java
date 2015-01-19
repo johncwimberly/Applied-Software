@@ -51,8 +51,6 @@ public class MainFrame extends JFrame {
 		list[0] = new Part("1", "screw", "Parts R Us", 4);
 		list[1] = new Part("2", "bolt", "Parts R Us", 4);
 		
-
-		
 		/*setting up space for the list of items and giving a 
 		 * little label to the list, then adding it to content
 		 * panel 
