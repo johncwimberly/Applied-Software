@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.GroupLayout;
@@ -50,11 +51,13 @@ public class DetailsFrame extends JFrame{
 //                .addComponent(info)
 //                .addGap(200)
 //        );
+		this.setLayout(new GridLayout(2,1));
 		String[] labels = {"Part Number: ", "Part Name: ", "Vendor: ", "Quantity: "};
 		int numPairs = labels.length;
 
 		//Create and populate the panel.
 		JPanel p = new JPanel(new SpringLayout());
+		this.add(p);
 		for (int i = 0; i < numPairs; i++) {
 		    JLabel l = new JLabel(labels[i], JLabel.TRAILING);
 		    p.add(l);
@@ -63,19 +66,24 @@ public class DetailsFrame extends JFrame{
 		    p.add(textField);
 		}
 
-		JButton button1 = new JButton("Confirm");
-		JButton button2 = new JButton("Cancel");
-
-		p.add(button1);
-		p.add(button2);
 		//Lay out the panel.
 		SpringUtilities.makeCompactGrid(p,
-		                                numPairs+1, 2, //rows, cols
+		                                numPairs, 2, //rows, cols
 		                                6, 6,        //initX, initY
 		                                6, 6);       //xPad, yPad
 		p.setOpaque(true);
-		setContentPane(p);
+		//setContentPane(p);
 
+		JPanel buttonPanel = new JPanel();
+		this.add(buttonPanel);
+		JButton button1 = new JButton("Confirm");
+		JButton button2 = new JButton("Cancel");
+
+		buttonPanel.add(button1);
+		buttonPanel.add(button2);
+		buttonPanel.setOpaque(true);
+		//setContentPane(buttonPanel);
+		
         pack();
 
         setVisible(true);
