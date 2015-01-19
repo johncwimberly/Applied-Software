@@ -88,7 +88,7 @@ public class MainFrame extends JFrame {
 		/* the main panel where all panels will reside
 		 * 
 		 * add content panel and buttons panel to main panel, all
-		 * of these reside in the main 'frame'
+		 * of these reside in the main  'frame'
 		 */
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(listTitle, BorderLayout.PAGE_START);
@@ -103,7 +103,7 @@ public class MainFrame extends JFrame {
 		pack();
 		setVisible(true);
 		setTitle("Inventory");
-		setSize(650, 600);
+		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 

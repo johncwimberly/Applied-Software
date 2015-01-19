@@ -87,7 +87,7 @@ public class AddPartFrame extends JFrame{
         pack();
 
         setVisible(true);
-        setTitle("Part Info");
+        setTitle("Add Part");
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         int screenHeight = screenSize.height;
