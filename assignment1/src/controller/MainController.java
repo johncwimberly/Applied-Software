@@ -32,7 +32,7 @@ public class MainController implements ActionListener {
 			 * 'newFrame'. Then each instance of this frame
 			 * will have a controller that will handle what occurs
 			 */
-			DetailsFrame newFrame = new DetailsFrame();
+			AddPartFrame newFrame = new AddPartFrame();
 		}
 		
 		if(viewAction.equals("Delete")){

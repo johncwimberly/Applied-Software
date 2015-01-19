@@ -13,10 +13,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class DetailsFrame extends JFrame{
+public class AddPartFrame extends JFrame{
 	
 	
-	public DetailsFrame() {
+	public AddPartFrame() {
 //		//JPanel pane = (JPanel) getContentPane();
 //       // GroupLayout gl = new GroupLayout(pane);
 //        //pane.setLayout(gl);
