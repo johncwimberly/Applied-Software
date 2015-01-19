@@ -40,7 +40,6 @@ public class MainFrame extends JFrame {
 	public MainFrame(Model model) {
 		this.model = model;
 		
-		pack();
 		
 //		Part[] list = new Part[2];
 //		list[0] = new Part("1", "screw", "Parts R Us", 4);
@@ -58,8 +57,6 @@ public class MainFrame extends JFrame {
 		JScrollPane listScroller = new JScrollPane(partsList);
 		listScroller.setPreferredSize(new Dimension(400, 350));
 
-		
-		
 		/*this panel will house the list of items and other useful
 		 * information used on screen, that are NOT buttons
 		 */
@@ -103,6 +100,7 @@ public class MainFrame extends JFrame {
 		 * and location (setLocationRelativeTo(null)) gives
 		 * centered location to frame on any screen when run
 		 */
+		pack();
 		setVisible(true);
 		setTitle("Inventory");
 		setSize(650, 600);

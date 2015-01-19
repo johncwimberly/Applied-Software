@@ -26,7 +26,7 @@ public class MainController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String viewAction = e.getActionCommand();
 		
-		if(viewAction.equals ("Add")){
+		if(viewAction.equals("Add")){
 			/*need to also implement a new controller which
 			 * will control all things that occur in this
 			 * 'newFrame'. Then each instance of this frame

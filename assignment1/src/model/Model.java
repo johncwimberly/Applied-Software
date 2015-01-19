@@ -17,7 +17,6 @@ public class Model {
 		//Test Parts added to list
 		partList.add(part1);
 		partList.add(part2);
-		System.out.println(listParts(partList));
 	}
 	
 	public void addPart(String partNum, String partName, String vendor, int quantity){
