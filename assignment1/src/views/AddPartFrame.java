@@ -5,12 +5,10 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
@@ -42,8 +40,8 @@ public class AddPartFrame extends JFrame{
 		vendorField = new JTextField(20);
 		quantityField = new JTextField(20);
 
-		nameLabel = new JLabel("Part");
-		numberLabel = new JLabel("Number");
+		nameLabel = new JLabel("Part Name");
+		numberLabel = new JLabel("Part #");
 		vendorLabel = new JLabel("Vendor");
 		quantityLabel = new JLabel("Quantity");
 				
@@ -79,17 +77,17 @@ public class AddPartFrame extends JFrame{
 		                                4, 2, 		//rows, cols
 		                                6, 6,       //initX, initY
 		                                6, 6);      //xPad, yPad
-        pack();
-
-        setVisible(true);
         setTitle("Add Part");
+        setResizable(false);
+        setVisible(true);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
         setLocation((screenWidth/2 + 20),(screenHeight/2 + 20));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+        pack();
+
 	}
 	
 	public void addPartFrameButtonListener(ActionListener listener1){
@@ -98,8 +96,28 @@ public class AddPartFrame extends JFrame{
 		
 	}
 
-	public String getPartNumber(){
-		return null;
+	public String getName(){
+		
+		return nameField.getText();
+		
+	}
+	
+	public String getNumber(){
+		
+		return numberField.getText();
+		
+	}
+
+	public String getVendor(){
+	
+		return vendorField.getText();
+	
+	}
+	
+	public String getQuantity(){
+		
+		return quantityField.getText();
+		
 	}
 	
 

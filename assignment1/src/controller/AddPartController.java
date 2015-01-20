@@ -24,7 +24,12 @@ public class AddPartController implements ActionListener{
 		String viewAction = e.getActionCommand();
 		
 		if(viewAction.equals("Confirm")){
-			System.out.println(view.getPartNumber());
+			String partNum = view.getName();
+			String partName = view.getNumber();
+			String vendor = view.getVendor();
+			int quantity = Integer.parseInt(view.getQuantity());
+			model.addPart(partNum, partName, vendor, quantity);
+			System.out.println(model.getPartList());
 		}		
 	}
 }
