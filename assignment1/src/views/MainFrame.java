@@ -51,7 +51,6 @@ public class MainFrame extends JFrame {
 		 */
 		
 		listModel = new DefaultListModel();
-		//partsList = new JList(model.getPartList().toArray());
 		partsList = new JList(listModel);
 		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		partsList.setLayoutOrientation(JList.VERTICAL);
