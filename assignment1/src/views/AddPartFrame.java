@@ -26,6 +26,7 @@ public class AddPartFrame extends JFrame{
 	private JLabel numberLabel;
 	private JLabel vendorLabel;	
 	private JLabel quantityLabel;
+	private JLabel infoLabel;
 	
 	private JButton confirmButton;
 	private JButton cancelButton;
@@ -44,6 +45,8 @@ public class AddPartFrame extends JFrame{
 		numberLabel = new JLabel("Part #");
 		vendorLabel = new JLabel("Vendor");
 		quantityLabel = new JLabel("Quantity");
+		infoLabel = new JLabel("information goes here");
+		
 				
 		confirmButton = new JButton("Confirm");
 		cancelButton = new JButton("Cancel");
@@ -72,6 +75,9 @@ public class AddPartFrame extends JFrame{
 		
 		buttonPanel.add(confirmButton);
 		buttonPanel.add(cancelButton);
+		
+		infoLabel.setLocation(10, 5);
+		this.add(infoLabel);
 
 		SpringUtilities.makeCompactGrid(textPanel,
 		                                4, 2, 		//rows, cols
@@ -120,6 +126,12 @@ public class AddPartFrame extends JFrame{
 		
 	}
 	
+	public String getInfoLabel(){
+		return infoLabel.getText();
+	}
+	public void setInfoLabel(String newLabel){
+		infoLabel.setText(newLabel);
+	}
 
 
 }
