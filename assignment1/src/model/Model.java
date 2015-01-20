@@ -19,10 +19,11 @@ public class Model {
 		partList.add(part2);
 	}
 	
-	public void addPart(String partNum, String partName, String vendor, int quantity){
+	public Part addPart(String partNum, String partName, String vendor, int quantity){
 		
 		Part part = new Part(partNum, partName, vendor, quantity);
 		partList.add(part);
+		return part;
 	}
 	
 	public void deletePart(Part part){

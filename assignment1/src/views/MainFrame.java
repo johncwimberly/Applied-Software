@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import controller.*;
 import model.*;
 
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,15 +25,19 @@ import javax.swing.ListSelectionModel;
 public class MainFrame extends JFrame {
 
 	private Model model;
-	private JButton addPartButton;
-	private JButton deletePartButton;
-	
+
 	private JPanel contentPanel;
 	private JPanel buttonPanel;
 	private JPanel mainPanel;
+
+	private JButton addPartButton;
+	private JButton deletePartButton;
 	
+	private JScrollPane listScroller;
 	private JLabel listTitle;
+	
 	private JList partsList;
+	private DefaultListModel<Part> listModel;
 	
 	private String addAction = "Add";
 	private String deleteAction = "Delete";
@@ -40,21 +45,19 @@ public class MainFrame extends JFrame {
 	public MainFrame(Model model) {
 		this.model = model;
 		
-		
-//		Part[] list = new Part[2];
-//		list[0] = new Part("1", "screw", "Parts R Us", 4);
-//		list[1] = new Part("2", "bolt", "Parts R Us", 4);
-//		
 		/*setting up space for the list of items and giving a 
 		 * little label to the list, then adding it to content
 		 * panel 
 		 */
-		partsList = new JList(model.getPartList().toArray());
+		
+		listModel = new DefaultListModel();
+		//model.getPartList().toArray()
+		partsList = new JList(listModel);
 		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		partsList.setLayoutOrientation(JList.VERTICAL);
 		partsList.setVisibleRowCount(10);
 		
-		JScrollPane listScroller = new JScrollPane(partsList);
+		listScroller = new JScrollPane(partsList);
 		listScroller.setPreferredSize(new Dimension(400, 350));
 
 		/*this panel will house the list of items and other useful
@@ -119,9 +122,13 @@ public class MainFrame extends JFrame {
 		
 	}
 	
+	public void addEntry(Part part){
+		listModel.addElement(part);
+	}
+	
 	public void createAddPartFrame(){
 		Model model = new Model();
 		AddPartFrame view = new AddPartFrame();
-		new AddPartController(model, view);
+		new AddPartController(model, view, this);
 	}
 }
