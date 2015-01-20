@@ -28,8 +28,8 @@ public class AddPartController implements ActionListener{
 		
 		if(viewAction.equals("Confirm")){
 			
-			String partNum = view.getName();
-			String partName = view.getNumber();
+			String partName = view.getName();
+			String partNum = view.getNumber();
 			String vendor = view.getVendor();
 			int quantity = Integer.parseInt(view.getQuantity());
 			
@@ -38,6 +38,17 @@ public class AddPartController implements ActionListener{
 			System.out.println(model.getPartList());
 		
 		}		
+	}
+	
+	private void verifyPartNum(String partNum){
+		char[] nonValid = {';', ':', ' ', '[', ']', '{', '}', '\"', '\'', '?', '/', '<', '>', ',', '.'};
+		for(char character: nonValid){
+			if(partNum.indexOf(character) >= 0){
+				//invalid string for part number
+				System.out.println("PartNum contains invalid character");
+				return;
+			}
+		}
 	}
 	
 }
