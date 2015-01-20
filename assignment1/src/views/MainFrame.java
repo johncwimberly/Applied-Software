@@ -118,4 +118,10 @@ public class MainFrame extends JFrame {
 		deletePartButton.addActionListener(listener1);
 		
 	}
+	
+	public void createAddPartFrame(){
+		Model model = new Model();
+		AddPartFrame view = new AddPartFrame();
+		new AddPartController(model, view);
+	}
 }

@@ -7,6 +7,7 @@ import views.*;
 import model.*;
 
 public class MainController implements ActionListener {
+	
 	private Model model;
 	private MainFrame view;
 
@@ -32,7 +33,7 @@ public class MainController implements ActionListener {
 			 * 'newFrame'. Then each instance of this frame
 			 * will have a controller that will handle what occurs
 			 */
-			AddPartFrame newFrame = new AddPartFrame();
+			view.createAddPartFrame();
 		}
 		
 		if(viewAction.equals("Delete")){

@@ -3,6 +3,7 @@ package views;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -15,75 +16,69 @@ import javax.swing.SpringLayout;
 
 public class AddPartFrame extends JFrame{
 	
+	private JPanel textPanel;
+	private JPanel buttonPanel;
+	
+	private JTextField nameField;
+	private JTextField numberField;
+	private JTextField vendorField;
+	private JTextField quantityField;
+
+	private JLabel nameLabel;
+	private JLabel numberLabel;
+	private JLabel vendorLabel;	
+	private JLabel quantityLabel;
+	
+	private JButton confirmButton;
+	private JButton cancelButton;
 	
 	public AddPartFrame() {
-//		//JPanel pane = (JPanel) getContentPane();
-//       // GroupLayout gl = new GroupLayout(pane);
-//        //pane.setLayout(gl);
-//        
-////        pane.setToolTipText("Content pane");
-//
-//		JPanel panel = new JPanel();
-//		this.add(panel);
-//        
-//		JLabel partNumber = new JLabel("Part Number:");
-//        //info.setToolTipText("maybe some additional part info?");
-//        panel.add(partNumber);
-//        
-//       // JTextField textField = new JTextField();
-//        //panel.add(textField);
-//        JTextArea numberArea = new JTextArea(1, 20);
-//        panel.add(numberArea);
-//        
-//        JLabel partName = new JLabel("Part Number:");
-//        panel.add(partName);
-//        
-//        JTextArea nameArea = new JTextArea(1, 20);
-//        panel.add(nameArea);
-//        gl.setAutoCreateContainerGaps(true);
-//        
-//        gl.setHorizontalGroup(gl.createSequentialGroup()
-//                .addComponent(info)
-//                .addGap(200)
-//        );
-//
-//        gl.setVerticalGroup(gl.createSequentialGroup()
-//                .addComponent(info)
-//                .addGap(200)
-//        );
-		this.setLayout(new GridLayout(2,1));
-		String[] labels = {"Part Number: ", "Part Name: ", "Vendor: ", "Quantity: "};
-		int numPairs = labels.length;
-
-		//Create and populate the panel.
-		JPanel p = new JPanel(new SpringLayout());
-		this.add(p);
-		for (int i = 0; i < numPairs; i++) {
-		    JLabel l = new JLabel(labels[i], JLabel.TRAILING);
-		    p.add(l);
-		    JTextField textField = new JTextField(20);
-		    l.setLabelFor(textField);
-		    p.add(textField);
-		}
-
-		//Lay out the panel.
-		SpringUtilities.makeCompactGrid(p,
-		                                numPairs, 2, //rows, cols
-		                                6, 6,        //initX, initY
-		                                6, 6);       //xPad, yPad
-		p.setOpaque(true);
-		//setContentPane(p);
-
-		JPanel buttonPanel = new JPanel();
-		this.add(buttonPanel);
-		JButton button1 = new JButton("Confirm");
-		JButton button2 = new JButton("Cancel");
-
-		buttonPanel.add(button1);
-		buttonPanel.add(button2);
-		buttonPanel.setOpaque(true);
-		//setContentPane(buttonPanel);
 		
+		textPanel = new JPanel(new SpringLayout());
+		buttonPanel = new JPanel();
+		
+		nameField = new JTextField(20);
+		numberField = new JTextField(20);
+		vendorField = new JTextField(20);
+		quantityField = new JTextField(20);
+
+		nameLabel = new JLabel("Part");
+		numberLabel = new JLabel("Number");
+		vendorLabel = new JLabel("Vendor");
+		quantityLabel = new JLabel("Quantity");
+				
+		confirmButton = new JButton("Confirm");
+		cancelButton = new JButton("Cancel");
+
+		confirmButton.setActionCommand("Confirm");
+		cancelButton.setActionCommand("Cancel");
+
+		this.setLayout(new GridLayout(2, 1));
+
+		this.add(textPanel);
+		
+		textPanel.add(nameLabel);
+		textPanel.add(nameField);
+
+		
+		textPanel.add(numberLabel);
+		textPanel.add(numberField);
+
+		textPanel.add(vendorLabel);
+		textPanel.add(vendorField);
+
+		textPanel.add(quantityLabel);		
+		textPanel.add(quantityField);
+		
+		this.add(buttonPanel);
+		
+		buttonPanel.add(confirmButton);
+		buttonPanel.add(cancelButton);
+
+		SpringUtilities.makeCompactGrid(textPanel,
+		                                4, 2, 		//rows, cols
+		                                6, 6,       //initX, initY
+		                                6, 6);      //xPad, yPad
         pack();
 
         setVisible(true);
@@ -96,5 +91,17 @@ public class AddPartFrame extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 	}
+	
+	public void addPartFrameButtonListener(ActionListener listener1){
+		confirmButton.addActionListener(listener1);
+		cancelButton.addActionListener(listener1);
+		
+	}
+
+	public String getPartNumber(){
+		return null;
+	}
+	
+
 
 }
