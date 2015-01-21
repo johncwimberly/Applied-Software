@@ -47,7 +47,7 @@ public class MainController implements ActionListener {
 			Part deleteMe = view.getSelectedItem();
 			model.deletePart(deleteMe);
 			view.deleteEntry(deleteMe);
-			System.out.println("You have selected DELETE! This is the item you wish to delete: \n" + view.getSelectedItem() + "\n");
+			System.out.println("You have selected DELETE! This is the item you wish to delete: \n" + deleteMe + "\n");
 			System.out.print("\n----------------\n");
 			System.out.println(model.getPartList());
 			

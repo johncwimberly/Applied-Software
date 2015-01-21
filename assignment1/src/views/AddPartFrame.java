@@ -36,9 +36,9 @@ public class AddPartFrame extends JFrame{
 		textPanel = new JPanel(new SpringLayout());
 		buttonPanel = new JPanel();
 		
-		nameField = new JTextField(20);
+		nameField = new JTextField(255);
 		numberField = new JTextField(20);
-		vendorField = new JTextField(20);
+		vendorField = new JTextField(255);
 		quantityField = new JTextField(20);
 
 		nameLabel = new JLabel("Part Name");

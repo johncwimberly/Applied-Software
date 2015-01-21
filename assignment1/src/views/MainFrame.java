@@ -136,5 +136,6 @@ public class MainFrame extends JFrame {
 	
 	public Part getSelectedItem(){
 		return (Part)partsList.getSelectedValue();
+
 	}
 }

@@ -46,7 +46,6 @@ public class AddPartController implements ActionListener{
 			
 			if(!verifyPartName(partName) ){ return; }
 			if(!verifyPartNum(partNum) ){ return; }
-			if(!verifyVendor(partNum) ){ return; }
 			intQuantity = verifyQuantity(strQuantity);
 			if(intQuantity == -1){ return; }
 			
@@ -64,22 +63,23 @@ public class AddPartController implements ActionListener{
 	/* returns false if failed, and true if successful and sets the info label
 	 * for corresponding field	*/
 	private boolean verifyPartNum(String partNum){
+		if(partNum.length() < 1){
+			return false;
+		}
 		for(Part part: partList){
 			if(part.getPartNum().equalsIgnoreCase(partNum)){
 				view.setInfoLabel("A part with this 'Part Number' already exists!");
 				return false;
 			}
 		}
-		for(char character: NEVERVALID){
-			if(partNum.indexOf(character) >= 0){
-				view.setInfoLabel("Part Number contains invalid characters!");
-				return false; 
-			}
-		}
+		
 		return true;
 	}
 	
 	private boolean verifyPartName(String partName){
+		if(partName.length() < 1){
+			return false;
+		}
 		for(Part part: partList){
 			if(part.getPartName().equalsIgnoreCase(partName)){
 				view.setInfoLabel("A part by this name already exists!");
@@ -87,12 +87,7 @@ public class AddPartController implements ActionListener{
 			}
 		}
 		
-		for(char character: NEVERVALID){
-			if(partName.indexOf(character) >= 0){
-				view.setInfoLabel("Part Name contains invalid characters!");
-				return false; 
-			}
-		}
+		
 		for(char character: NUMBERS){
 			if(partName.indexOf(character) >= 0){
 				view.setInfoLabel("Part Name cannot contain numbers!");
@@ -102,15 +97,6 @@ public class AddPartController implements ActionListener{
 		return true;
 	}
 	
-	private boolean verifyVendor(String vendor) {
-		for(char character: NEVERVALID){
-			if(vendor.indexOf(character) >= 0){
-				view.setInfoLabel("Vendor contains invalid characters!");
-				return false; 
-			}
-		}
-		return true;
-	}
 	
 	
 	private int verifyQuantity(String strQuantity) {
