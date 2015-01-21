@@ -45,7 +45,7 @@ public class AddPartFrame extends JFrame{
 		numberLabel = new JLabel("Part #");
 		vendorLabel = new JLabel("Vendor");
 		quantityLabel = new JLabel("Quantity");
-		infoLabel = new JLabel("information goes here");
+		infoLabel = new JLabel("");
 		
 				
 		confirmButton = new JButton("Confirm");

@@ -130,4 +130,8 @@ public class MainFrame extends JFrame {
 		AddPartFrame view = new AddPartFrame();
 		new AddPartController(model, view, this);
 	}
+	
+	public Part getSelectedItem(){
+		return (Part)partsList.getSelectedValue();
+	}
 }
