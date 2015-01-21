@@ -9,9 +9,6 @@ import model.Part;
 import views.AddPartFrame;
 import views.MainFrame;
 
-
-
-
 public class AddPartController implements ActionListener{
 
 	private Model model;
