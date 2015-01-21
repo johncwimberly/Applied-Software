@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import utilities.SpringUtilities;
+
 public class AddPartFrame extends JFrame{
 	
 	private JPanel textPanel;
