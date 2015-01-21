@@ -42,8 +42,14 @@ public class MainController implements ActionListener {
 			 * to make sure this button does something unique.
 			 * Will work with the view to remove lines from a 
 			 * JList once something is there to remove
+			 * 
 			 */
-			System.out.println("YOU TRIED TO DELETE");
+			Part deleteMe = view.getSelectedItem();
+			model.deletePart(deleteMe);
+			System.out.println("You have selected DELETE! This is the item you wish to delete: \n" + view.getSelectedItem() + "\n");
+			System.out.print("\n----------------\n");
+			System.out.println(model.getPartList());
+			
 		}
 		
 	}
