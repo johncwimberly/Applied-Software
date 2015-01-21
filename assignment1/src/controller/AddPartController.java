@@ -61,7 +61,11 @@ public class AddPartController implements ActionListener{
 	 * for corresponding field	*/
 	private boolean verifyPartNum(String partNum){
 		if(partNum.length() < 1){
+			view.setInfoLabel("Must enter a valid Part Number!");
 			return false;
+		}
+		if(partList.isEmpty()){
+			return true;
 		}
 		for(Part part: partList){
 			if(part.getPartNum().equalsIgnoreCase(partNum)){
@@ -75,7 +79,11 @@ public class AddPartController implements ActionListener{
 	
 	private boolean verifyPartName(String partName){
 		if(partName.length() < 1){
+			view.setInfoLabel("Must enter a valid Part Name!");
 			return false;
+		}
+		if(partList.isEmpty()){
+			return true;
 		}
 		for(Part part: partList){
 			if(part.getPartName().equalsIgnoreCase(partName)){

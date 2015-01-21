@@ -87,7 +87,7 @@ public class AddPartFrame extends JFrame{
         setVisible(true);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
-        int screenHeight = screenSize.height;
+        int screenHeight = screenSize.height + 20;
         int screenWidth = screenSize.width;
         setLocation((screenWidth/2 + 20),(screenHeight/2 + 20));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
