@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
 
 	private JButton addPartButton;
 	private JButton deletePartButton;
+	private JButton editPartButton;
 	
 	private JScrollPane listScroller;
 	private JLabel listTitle;
@@ -41,6 +42,7 @@ public class MainFrame extends JFrame {
 	
 	private String addAction = "Add";
 	private String deleteAction = "Delete";
+	private String editAction = "Edit";
 	
 	public MainFrame(Model model) {
 		this.model = model;
@@ -78,6 +80,11 @@ public class MainFrame extends JFrame {
 		deletePartButton.setToolTipText("Click to delete a part");
 		deletePartButton.setActionCommand(deleteAction);
 		
+		editPartButton = new JButton("Edit");
+		editPartButton.setToolTipText("Click to edit a part");
+		editPartButton.setActionCommand(editAction);
+
+		
 		/*create button panel for all buttons to be nested in then
 		 * create the buttons and add them to the panel
 		 */
@@ -85,6 +92,7 @@ public class MainFrame extends JFrame {
 		buttonPanel.setToolTipText("Area for buttons");
 		buttonPanel.add(addPartButton);
 		buttonPanel.add(deletePartButton);
+		buttonPanel.add(editPartButton);
 		
 		listTitle = new JLabel("This is the area for jlist to go");
 		/* the main panel where all panels will reside
@@ -118,7 +126,7 @@ public class MainFrame extends JFrame {
 	public void mainViewBtnListener(ActionListener listener1){
 		addPartButton.addActionListener(listener1);
 		deletePartButton.addActionListener(listener1);
-		
+		editPartButton.addActionListener(listener1);
 	}
 	
 	public void addEntry(Part part){

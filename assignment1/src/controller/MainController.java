@@ -53,6 +53,10 @@ public class MainController implements ActionListener {
 			
 		}
 		
+		if(viewAction.equals("Edit")){
+			System.out.println("Pressed Edit button!!!!!"); 
+		}
+		
 	}
 	
 	public void addTestData(){
