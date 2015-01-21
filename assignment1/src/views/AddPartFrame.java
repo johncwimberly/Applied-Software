@@ -72,12 +72,11 @@ public class AddPartFrame extends JFrame{
 		textPanel.add(quantityField);
 		
 		this.add(buttonPanel);
-		
 		buttonPanel.add(confirmButton);
 		buttonPanel.add(cancelButton);
+		buttonPanel.add(infoLabel);
+
 		
-		infoLabel.setLocation(10, 5);
-		this.add(infoLabel);
 
 		SpringUtilities.makeCompactGrid(textPanel,
 		                                4, 2, 		//rows, cols
