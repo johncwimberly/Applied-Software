@@ -134,8 +134,25 @@ public class AddPartFrame extends JFrame{
 	public String getInfoLabel(){
 		return infoLabel.getText();
 	}
+	
 	public void setInfoLabel(String newLabel){
 		infoLabel.setText(newLabel);
+	}
+	
+	public void setNameField(){
+		nameField.setText("Part name goes here");
+	}
+	
+	public void setNumberField(){
+		numberField.setText("Part number goes here");
+	}
+	
+	public void setVendorField(){
+		vendorField.setText("Part vendor goes here");
+	}
+	
+	public void setQuantityField(){
+		quantityField.setText("Part quantity goes here");
 	}
 
 
