@@ -15,10 +15,7 @@ public class AddPartController implements ActionListener{
 	private AddPartFrame view;
 	private MainFrame view2;
 	private ArrayList<Part> partList = null;
-	
-	char[] NEVERVALID = {';', ':', ' ', '[', ']', '{', '}', '\"', '\'', '?', '/', '<', '>', ',', '.', '(', ')', '|', '\\', '!', '@',
-			'#', '$', '%', '^', '&', '*', '	', '-', '_', '+', '='};
-	char[] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
 
 	public AddPartController(Model model, AddPartFrame view, MainFrame view2) {
 
@@ -84,14 +81,6 @@ public class AddPartController implements ActionListener{
 			if(part.getPartName().equalsIgnoreCase(partName)){
 				view.setInfoLabel("A part by this name already exists!");
 				return false;
-			}
-		}
-		
-		
-		for(char character: NUMBERS){
-			if(partName.indexOf(character) >= 0){
-				view.setInfoLabel("Part Name cannot contain numbers!");
-				return false; 
 			}
 		}
 		return true;
