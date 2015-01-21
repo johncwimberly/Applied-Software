@@ -125,6 +125,10 @@ public class MainFrame extends JFrame {
 		listModel.addElement(part);
 	}
 	
+	public void deleteEntry(Part part){
+		listModel.removeElement(part);
+	}
+	
 	public void createAddPartFrame(){
 		Model model = new Model();
 		AddPartFrame view = new AddPartFrame();
