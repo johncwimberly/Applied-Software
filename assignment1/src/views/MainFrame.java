@@ -142,13 +142,13 @@ public class MainFrame extends JFrame {
 		new AddPartController(model, view, this);
 	}
 	
-	public void createEditPartFrame(){
+	public void createEditPartFrame(Part part){
 		AddPartFrame view = new AddPartFrame();
 		new AddPartController(model, view, this);
-		view.setNameField();
-		view.setNumberField();
-		view.setQuantityField();
-		view.setVendorField();
+		view.setNameField(part.getPartName());
+		view.setNumberField(part.getPartNum());
+		view.setQuantityField(part.getQuantity());
+		view.setVendorField(part.getVendor());
 		
 	}
 	

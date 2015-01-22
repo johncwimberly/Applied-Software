@@ -126,9 +126,7 @@ public class AddPartFrame extends JFrame{
 	}
 	
 	public String getQuantity(){
-		
 		return quantityField.getText();
-		
 	}
 	
 	public String getInfoLabel(){
@@ -139,20 +137,20 @@ public class AddPartFrame extends JFrame{
 		infoLabel.setText(newLabel);
 	}
 	
-	public void setNameField(){
-		nameField.setText("Part name goes here");
+	public void setNameField(String name){
+		nameField.setText(name);
 	}
 	
-	public void setNumberField(){
-		numberField.setText("Part number goes here");
+	public void setNumberField(String number){
+		numberField.setText(number);
 	}
 	
-	public void setVendorField(){
-		vendorField.setText("Part vendor goes here");
+	public void setVendorField(String vendor){
+		vendorField.setText(vendor);
 	}
 	
-	public void setQuantityField(){
-		quantityField.setText("Part quantity goes here");
+	public void setQuantityField(int quantity){
+		quantityField.setText(Integer.toString(quantity));
 	}
 
 

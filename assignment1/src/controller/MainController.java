@@ -54,7 +54,8 @@ public class MainController implements ActionListener {
 		}
 		
 		if(viewAction.equals("Edit")){
-			view.createEditPartFrame();
+			Part editMe = view.getSelectedItem();
+			view.createEditPartFrame(editMe);
 		}
 		
 	}
