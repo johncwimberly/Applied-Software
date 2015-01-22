@@ -15,14 +15,17 @@ public class AddPartController implements ActionListener{
 	private AddPartFrame view;
 	private MainFrame view2;
 	private ArrayList<Part> partList = null;
+	
+	int editFlag = 0;
 
 
-	public AddPartController(Model model, AddPartFrame view, MainFrame view2) {
+	public AddPartController(Model model, AddPartFrame view, MainFrame view2, int flag) {
 
 		this.model = model;
 		this.view = view;
 		this.view2 = view2;
 		partList = model.getPartList();
+		this.editFlag = flag;
 		
 		view.addPartFrameButtonListener(this);
 	}
@@ -100,8 +103,13 @@ public class AddPartController implements ActionListener{
 		int val;
 		try {
             val = Integer.valueOf(strQuantity);
-            if(val <= 0){
+            
+            if(val <= 0 && editFlag == 0){
             	view.setInfoLabel("Quantity must be larger than 0");
+            	return -1;
+            }
+            else if(val < 0){
+            	view.setInfoLabel("Quantity cannot be less than 0");
             	return -1;
             }
             return val;
