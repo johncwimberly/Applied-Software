@@ -16,6 +16,7 @@ public class AddPartController implements ActionListener{
 	private MainFrame view2;
 	private ArrayList<Part> partList = null;
 	
+	Part partToEdit;
 	int editFlag = 0;
 
 
@@ -26,6 +27,8 @@ public class AddPartController implements ActionListener{
 		this.view2 = view2;
 		partList = model.getPartList();
 		this.editFlag = flag;
+		
+		
 		
 		view.addPartFrameButtonListener(this);
 	}
@@ -44,26 +47,46 @@ public class AddPartController implements ActionListener{
 			String strQuantity = view.getQuantity();
 			int intQuantity;
 			
-			if(!verifyPartName(partName) ){ return; }
-			if(!verifyPartNum(partNum) ){ return; }
-			intQuantity = verifyQuantity(strQuantity);
-			if(intQuantity == -1){ return; }
-			
-			
-			Part part = model.addPart(partNum, partName, vendor, intQuantity);
-			view2.addEntry(part);
-			System.out.println(model.getPartList());
+			if(editFlag == 1 && partToEdit != null){
+				if(!verifyEditPartName(partName) ){ return; }
+				if(!verifyEditPartNum(partNum) ){ return; }
+				intQuantity = verifyEditQuantity(strQuantity);
+				if(intQuantity == -1){ return; }
+				
+
+				model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
+				Part newPart = new Part(partNum, partName, vendor, intQuantity);
+				view2.editEntry(partToEdit, newPart);
+				
+				
+			}
+			else{
+				if(!verifyPartName(partName) ){ return; }
+				if(!verifyPartNum(partNum) ){ return; }
+				intQuantity = verifyQuantity(strQuantity);
+				if(intQuantity == -1){ return; }
+				
+				
+				Part part = model.addPart(partNum, partName, vendor, intQuantity);
+				view2.addEntry(part);
+				System.out.println(model.getPartList());
+			}
 		
 		}
 		if(viewAction.equalsIgnoreCase("Cancel")){
 			view.dispose();
 		}
 	}
+	
+	
+	public void setEditPart(Part part){
+		this.partToEdit = part;
+	}
 
 	/* returns false if failed, and true if successful and sets the info label
 	 * for corresponding field	*/
 	private boolean verifyPartNum(String partNum){
-		if(partNum.length() < 1){
+		if(partNum.length() < 1 || partNum.length() > 20){
 			view.setInfoLabel("Must enter a valid Part Number!");
 			return false;
 		}
@@ -81,7 +104,7 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyPartName(String partName){
-		if(partName.length() < 1){
+		if(partName.length() < 1 || partName.length() > 255){
 			view.setInfoLabel("Must enter a valid Part Name!");
 			return false;
 		}
@@ -96,8 +119,6 @@ public class AddPartController implements ActionListener{
 		}
 		return true;
 	}
-	
-	
 	
 	private int verifyQuantity(String strQuantity) {
 		int val;
@@ -118,5 +139,36 @@ public class AddPartController implements ActionListener{
 		}
 		return -1;
 	}
+	
+	private boolean verifyEditPartNum(String partNum){
+		if(partNum.length() < 1 || partNum.length() > 20){
+			view.setInfoLabel("Must enter a Part Number of valid length! (1-20 characters)");
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean verifyEditPartName(String partName){
+		if(partName.length() < 1 || partName.length() > 255){
+			view.setInfoLabel("Must enter a Part Name of valid length! (1-255 characters)");
+			return false;
+		}
+		return true;
+	}
+	private int verifyEditQuantity(String strQuantity) {
+		int val;
+		try {
+            val = Integer.valueOf(strQuantity);
+            if(val < 0){
+            	view.setInfoLabel("Quantity cannot be less than 0");
+            	return -1;
+            }
+            return val;
+		} catch(NumberFormatException e) {
+			view.setInfoLabel("Quantity must contain only numbers!");;
+		}
+		return -1;
+	}
+	
 	
 }
