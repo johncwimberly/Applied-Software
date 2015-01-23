@@ -10,6 +10,7 @@ public class MainController implements ActionListener {
 	
 	private Model model;
 	private MainFrame view;
+	private AddPartFrame view2;
 
 	public MainController(Model model, MainFrame view) {
 
@@ -60,7 +61,7 @@ public class MainController implements ActionListener {
 			}
 			else{
 				Part editMe = view.getSelectedItem();
-				view.createEditPartFrame(editMe);
+				view2 = view.createEditPartFrame(editMe);
 			}
 		}
 		

@@ -4,6 +4,7 @@ package views;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import controller.*;
@@ -29,6 +30,8 @@ public class MainFrame extends JFrame {
 	private JPanel contentPanel;
 	private JPanel buttonPanel;
 	private JPanel mainPanel;
+	private JPanel labePanell;
+	private JPanel bottomPanel;
 
 	private JButton addPartButton;
 	private JButton deletePartButton;
@@ -36,6 +39,7 @@ public class MainFrame extends JFrame {
 	
 	private JScrollPane listScroller;
 	private JLabel listTitle;
+	private JLabel warnLabel;
 	
 	private JList partsList;
 	private DefaultListModel<Part> listModel;
@@ -85,6 +89,8 @@ public class MainFrame extends JFrame {
 		editPartButton.setActionCommand(editAction);
 
 		
+		warnLabel = new JLabel("warning label goes here");
+		
 		/*create button panel for all buttons to be nested in then
 		 * create the buttons and add them to the panel
 		 */
@@ -93,8 +99,15 @@ public class MainFrame extends JFrame {
 		buttonPanel.add(addPartButton);
 		buttonPanel.add(deletePartButton);
 		buttonPanel.add(editPartButton);
+
 		
 		listTitle = new JLabel("This is the area for jlist to go");
+		
+		bottomPanel = new JPanel(new GridLayout(2,1));
+		
+		bottomPanel.add(buttonPanel);
+		bottomPanel.add(warnLabel);
+		
 		/* the main panel where all panels will reside
 		 * 
 		 * add content panel and buttons panel to main panel, all
@@ -103,7 +116,7 @@ public class MainFrame extends JFrame {
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(listTitle, BorderLayout.PAGE_START);
 		mainPanel.add(contentPanel, BorderLayout.CENTER);
-		mainPanel.add(buttonPanel, BorderLayout.PAGE_END);
+		mainPanel.add(bottomPanel, BorderLayout.PAGE_END);
 		this.add(mainPanel);
 
 		/*unsure what pack does. Give title to the frame, size

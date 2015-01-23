@@ -41,7 +41,7 @@ public class AddPartFrame extends JFrame{
 		nameField = new JTextField(255);
 		nameField.setColumns(20);
 		numberField = new JTextField(20);
-		numberField.setColumns(20);
+		numberField.setColumns(10);
 		vendorField = new JTextField(255);
 		vendorField.setColumns(20);
 		quantityField = new JTextField(20);
