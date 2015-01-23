@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import views.*;
 import model.*;
@@ -11,12 +12,13 @@ public class MainController implements ActionListener {
 	private Model model;
 	private MainFrame view;
 	private AddPartFrame view2;
-
+	private ArrayList<AddPartFrame> listOfViews;
+	
 	public MainController(Model model, MainFrame view) {
 
 		this.model = model;
 		this.view = view;
-
+		listOfViews = new ArrayList<AddPartFrame>();
 		addTestData();
 		view.mainViewBtnListener(this);
 	}
