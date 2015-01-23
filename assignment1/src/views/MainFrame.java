@@ -155,7 +155,7 @@ public class MainFrame extends JFrame {
 		new AddPartController(model, view, this, 0);
 	}
 	
-	public void createEditPartFrame(Part part){
+	public AddPartFrame createEditPartFrame(Part part){
 		AddPartFrame view = new AddPartFrame();
 		AddPartController controller = new AddPartController(model, view, this, 1);
 		view.setNameField(part.getPartName());
@@ -163,6 +163,7 @@ public class MainFrame extends JFrame {
 		view.setQuantityField(part.getQuantity());
 		view.setVendorField(part.getVendor());
 		controller.setEditPart(part);
+		return view;
 	}
 	
 	public JList getPartsList(){
