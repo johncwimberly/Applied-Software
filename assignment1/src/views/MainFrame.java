@@ -144,12 +144,12 @@ public class MainFrame extends JFrame {
 	
 	public void createEditPartFrame(Part part){
 		AddPartFrame view = new AddPartFrame();
-		new AddPartController(model, view, this, 1);
+		AddPartController controller = new AddPartController(model, view, this, 1);
 		view.setNameField(part.getPartName());
 		view.setNumberField(part.getPartNum());
 		view.setQuantityField(part.getQuantity());
 		view.setVendorField(part.getVendor());
-		
+		controller.setEditPart(part);
 	}
 	
 	public JList getPartsList(){
@@ -159,5 +159,10 @@ public class MainFrame extends JFrame {
 	public Part getSelectedItem(){
 		return (Part)partsList.getSelectedValue();
 
+	}
+	
+	public void editEntry(Part oldPart, Part newPart){
+		
+		return;
 	}
 }
