@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import views.*;
 import model.*;
@@ -12,13 +14,13 @@ public class MainController implements ActionListener {
 	private Model model;
 	private MainFrame view;
 	private AddPartFrame view2;
-	private ArrayList<AddPartFrame> listOfViews;
+	private Map<Part, AddPartFrame> listOfViews;
 	
 	public MainController(Model model, MainFrame view) {
 
 		this.model = model;
 		this.view = view;
-		listOfViews = new ArrayList<AddPartFrame>();
+		listOfViews = new HashMap<Part, AddPartFrame>();
 		addTestData();
 		view.mainViewBtnListener(this);
 	}
@@ -50,6 +52,7 @@ public class MainController implements ActionListener {
 			Part deleteMe = view.getSelectedItem();
 			model.deletePart(deleteMe);
 			view.deleteEntry(deleteMe);
+			listOfViews.get(deleteMe).dispose();
 			System.out.println("You have selected DELETE! This is the item you wish to delete: \n" + deleteMe + "\n");
 			System.out.print("\n----------------\n");
 			System.out.println(model.getPartList());
@@ -64,6 +67,7 @@ public class MainController implements ActionListener {
 			else{
 				Part editMe = view.getSelectedItem();
 				view2 = view.createEditPartFrame(editMe);
+				listOfViews.put(editMe, view2);
 			}
 		}
 		
