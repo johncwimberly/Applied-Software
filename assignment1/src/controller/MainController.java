@@ -14,13 +14,13 @@ public class MainController implements ActionListener {
 	private Model model;
 	private MainFrame view;
 	private AddPartFrame view2;
-	private Map<Part, AddPartFrame> listOfViews;
+	private Map<Part, AddPartFrame> mapOfViews;
 	
 	public MainController(Model model, MainFrame view) {
 
 		this.model = model;
 		this.view = view;
-		listOfViews = new HashMap<Part, AddPartFrame>();
+		mapOfViews = new HashMap<Part, AddPartFrame>();
 		addTestData();
 		view.mainViewBtnListener(this);
 	}
@@ -52,7 +52,7 @@ public class MainController implements ActionListener {
 			Part deleteMe = view.getSelectedItem();
 			model.deletePart(deleteMe);
 			view.deleteEntry(deleteMe);
-			listOfViews.get(deleteMe).dispose();
+			mapOfViews.get(deleteMe).dispose();
 			System.out.println("You have selected DELETE! This is the item you wish to delete: \n" + deleteMe + "\n");
 			System.out.print("\n----------------\n");
 			System.out.println(model.getPartList());
@@ -67,7 +67,7 @@ public class MainController implements ActionListener {
 			else{
 				Part editMe = view.getSelectedItem();
 				view2 = view.createEditPartFrame(editMe);
-				listOfViews.put(editMe, view2);
+				mapOfViews.put(editMe, view2);
 			}
 		}
 		

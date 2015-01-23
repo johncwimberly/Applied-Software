@@ -76,6 +76,8 @@ public class AddPartController implements ActionListener{
 		if(viewAction.equalsIgnoreCase("Cancel")){
 			view.dispose();
 		}
+		
+		view.dispose();
 	}
 	
 	
