@@ -27,19 +27,17 @@ public class Model {
 	}
 	
 	public void deletePart(Part part){
-		System.out.println(partList.contains(part));
+		System.out.println("in model " + part);
 		partList.remove(part);
 	}
 	
-	public Part editPart(Part part, String partNum, String partName, 
+	public void editPart(Part part, String partNum, String partName, 
 			String vendor, int quantity){
 		
 		part.setPartName(partName);
 		part.setPartNum(partNum);
 		part.setQuantity(quantity);
 		part.setVendor(vendor);
-		
-		return part;
 	}
 	
 	public ArrayList<Part> getPartList(){

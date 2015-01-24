@@ -54,10 +54,9 @@ public class AddPartController implements ActionListener{
 				intQuantity = verifyEditQuantity(strQuantity);
 				if(intQuantity == -1){ return; }
 				
-				Part newPart = model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
-				//Part newPart = new Part(partNum, partName, vendor, intQuantity);
+				model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
+				Part newPart = new Part(partNum, partName, vendor, intQuantity);
 				view2.editEntry(partToEdit, newPart);
-				System.out.println(model.getPartList());
 				view.dispose();
 				
 			}

@@ -56,7 +56,7 @@ public class MainFrame extends JFrame {
 		 * panel 
 		 */
 		
-		listModel = new DefaultListModel<Part>();
+		listModel = new DefaultListModel();
 		partsList = new JList(listModel);
 		partsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		partsList.setLayoutOrientation(JList.VERTICAL);
@@ -166,7 +166,7 @@ public class MainFrame extends JFrame {
 		return view;
 	}
 	
-	public JList<Part> getPartsList(){
+	public JList getPartsList(){
 		return partsList;
 	}
 	
