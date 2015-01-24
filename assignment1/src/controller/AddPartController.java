@@ -65,6 +65,7 @@ public class AddPartController implements ActionListener{
 				if(!verifyPartNum(partNum) ){ return; }
 				intQuantity = verifyQuantity(strQuantity);
 				if(intQuantity == -1){ return; }
+				partList = model.getPartList();
 				
 				
 				Part part = model.addPart(partNum, partName, vendor, intQuantity);
