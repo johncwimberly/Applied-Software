@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
 		editPartButton.setActionCommand(editAction);
 
 		
-		warnLabel = new JLabel("warning label goes here");
+		warnLabel = new JLabel();
 		
 		/*create button panel for all buttons to be nested in then
 		 * create the buttons and add them to the panel
@@ -169,7 +169,15 @@ public class MainFrame extends JFrame {
 	public JList getPartsList(){
 		return partsList;
 	}
-		
+	
+	public void setWarningLabel(){
+		warnLabel.setText("Must select an item");
+	}
+
+	public void removeWarningLabel(){
+		warnLabel.setText("");
+	}
+	
 	public Part getSelectedItem(){
 		return (Part)partsList.getSelectedValue();
 

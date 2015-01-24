@@ -108,7 +108,7 @@ public class AddPartFrame extends JFrame{
 		cancelButton.addActionListener(listener1);
 		
 	}
-
+	
 	public String getName(){
 		
 		return nameField.getText();

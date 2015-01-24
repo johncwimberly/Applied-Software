@@ -62,12 +62,13 @@ public class MainController implements ActionListener {
 		if(viewAction.equals("Edit")){
 			
 			if(view.getPartsList().isSelectionEmpty()){
-				System.out.println("Need to create a label!!");
+				view.setWarningLabel();
 			}
 			else{
 				Part editMe = view.getSelectedItem();
 				view2 = view.createEditPartFrame(editMe);
 				mapOfViews.put(editMe, view2);
+				view.removeWarningLabel();
 			}
 		}
 		
