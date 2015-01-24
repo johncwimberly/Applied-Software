@@ -21,7 +21,7 @@ public class MainController implements ActionListener {
 		this.model = model;
 		this.view = view;
 		mapOfViews = new HashMap<Part, AddPartFrame>();
-		addTestData();
+		view.addTestData();
 		view.mainViewBtnListener(this);
 	}
 
@@ -76,9 +76,4 @@ public class MainController implements ActionListener {
 		
 	}
 	
-	public void addTestData(){
-		for(int i = 0; i < model.getPartList().size(); i++){
-			view.addEntry(model.getPartList().get(i));
-		}
-	}
 }

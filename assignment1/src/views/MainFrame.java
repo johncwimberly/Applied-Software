@@ -189,4 +189,11 @@ public class MainFrame extends JFrame {
 		listModel.addElement(newPart);
 		
 	}
+	
+	public void addTestData(){
+		for(int i = 0; i < model.getPartList().size(); i++){
+			addEntry(model.getPartList().get(i));
+		}
+	}
+
 }
