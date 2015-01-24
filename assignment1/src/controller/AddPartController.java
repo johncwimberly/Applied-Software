@@ -155,13 +155,6 @@ public class AddPartController implements ActionListener{
 			view.setInfoLabel("Must enter a Part Name of valid length! (1-255 characters)");
 			return false;
 		}
-//		for(Part part: partList){
-//			if(part.getPartName().equalsIgnoreCase(partName)){
-//				view.setInfoLabel("A part by this name already exists!");
-//				return false;
-//			}
-//		}
-
 		return true;
 	}
 	private int verifyEditQuantity(String strQuantity) {
