@@ -124,7 +124,6 @@ public class MainFrame extends JFrame {
 		 * centered location to frame on any screen when run
 		 */
 		pack();
-		setVisible(true);
 		setTitle("Inventory");
 		setSize(500, 500);
 		setLocationRelativeTo(null);
