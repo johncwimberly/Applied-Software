@@ -46,6 +46,7 @@ public class AddPartController implements ActionListener{
 			String vendor = view.getVendor();
 			String strQuantity = view.getQuantity();
 			int intQuantity;
+			partList = model.getPartList();
 			
 			if(editFlag == 1 && partToEdit != null){
 				if(!verifyEditPartName(partName) ){ return; }
@@ -84,7 +85,6 @@ public class AddPartController implements ActionListener{
 	public void setEditPart(Part part){
 		this.partToEdit = part;
 	}
-
 	/* returns false if failed, and true if successful and sets the info label
 	 * for corresponding field	*/
 	private boolean verifyPartNum(String partNum){
@@ -101,7 +101,6 @@ public class AddPartController implements ActionListener{
 				return false;
 			}
 		}
-		
 		return true;
 	}
 	
@@ -126,7 +125,6 @@ public class AddPartController implements ActionListener{
 		int val;
 		try {
             val = Integer.valueOf(strQuantity);
-            
             if(val <= 0 && editFlag == 0){
             	view.setInfoLabel("Quantity must be larger than 0");
             	return -1;
@@ -143,6 +141,16 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyEditPartNum(String partNum){
+		if(partToEdit.getPartNum() == partNum){
+			return true;
+		}else{
+			for(Part part: partList){
+				if(part.getPartNum().equalsIgnoreCase(partNum)){
+					view.setInfoLabel("A part by this part number already exists!");
+					return false;
+				}
+			}
+		}
 		if(partNum.length() < 1 || partNum.length() > 20){
 			view.setInfoLabel("Must enter a Part Number of valid length! (1-20 characters)");
 			return false;
@@ -151,16 +159,21 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyEditPartName(String partName){
+		if(partToEdit.getPartName() == partName){
+			System.out.println("THIS IS INSIDE VERIFYEDITPARTNAME-----");
+			return true;
+		}else{
+			for(Part part: partList){
+				if(part.getPartName().equalsIgnoreCase(partName)){
+					view.setInfoLabel("A part by this name already exists!");
+					return false;
+				}
+			}
+		}
 		if(partName.length() < 1 || partName.length() > 255){
 			view.setInfoLabel("Must enter a Part Name of valid length! (1-255 characters)");
 			return false;
 		}
-//		for(Part part: partList){
-//			if(part.getPartName().equalsIgnoreCase(partName)){
-//				view.setInfoLabel("A part by this name already exists!");
-//				return false;
-//			}
-//		}
 
 		return true;
 	}

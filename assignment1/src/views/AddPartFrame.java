@@ -110,21 +110,15 @@ public class AddPartFrame extends JFrame{
 	}
 	
 	public String getName(){
-		
 		return nameField.getText();
-		
 	}
 	
 	public String getNumber(){
-		
 		return numberField.getText();
-		
 	}
 
 	public String getVendor(){
-	
 		return vendorField.getText();
-	
 	}
 	
 	public String getQuantity(){
