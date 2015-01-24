@@ -89,6 +89,12 @@ public class AddPartController implements ActionListener{
 	/* returns false if failed, and true if successful and sets the info label
 	 * for corresponding field	*/
 	private boolean verifyPartNum(String partNum){
+		boolean fails;
+		fails = partNum.matches(".*\\s.*");
+		if(fails){
+			view.setInfoLabel("Part Number cannot contain spaces!");
+			return false;
+		}
 		if(partNum.length() < 1 || partNum.length() > 20){
 			view.setInfoLabel("Must enter a valid Part Number!");
 			return false;
@@ -106,10 +112,17 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyPartName(String partName){
+		boolean fails;
+		fails = partName.matches(".*\\s.*");
+		if(fails){
+			view.setInfoLabel("Part Name cannot contain spaces!");
+			return false;
+		}
 		if(partName.length() < 1 || partName.length() > 255){
 			view.setInfoLabel("Must enter a valid Part Name!");
 			return false;
 		}
+		
 		if(partList.isEmpty()){
 			return true;
 		}
@@ -142,7 +155,13 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyEditPartNum(String partNum){
-		if(partToEdit.getPartNum() == partNum){
+		boolean fails;
+		fails = partNum.matches(".*\\s.*");
+		if(fails){
+			view.setInfoLabel("Part Name cannot contain spaces!");
+			return false;
+		}
+		if(partToEdit.getPartNum().equals(partNum)){
 			return true;
 		}else{
 			for(Part part: partList){
@@ -160,8 +179,13 @@ public class AddPartController implements ActionListener{
 	}
 	
 	private boolean verifyEditPartName(String partName){
-		if(partToEdit.getPartName() == partName){
-			System.out.println("THIS IS INSIDE VERIFYEDITPARTNAME-----");
+		boolean fails;
+		fails = partName.matches(".*\\s.*");
+		if(fails){
+			view.setInfoLabel("Part Name cannot contain spaces!");
+			return false;
+		}
+		if(partToEdit.getPartName().equals(partName)){
 			return true;
 		}else{
 			for(Part part: partList){
