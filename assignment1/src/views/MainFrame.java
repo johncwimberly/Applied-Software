@@ -177,6 +177,8 @@ public class MainFrame extends JFrame {
 	
 	public void editEntry(Part oldPart, Part newPart){
 		
-		return;
+		listModel.removeElement(oldPart);
+		listModel.addElement(newPart);
+		
 	}
 }

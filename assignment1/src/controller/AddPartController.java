@@ -53,11 +53,10 @@ public class AddPartController implements ActionListener{
 				intQuantity = verifyEditQuantity(strQuantity);
 				if(intQuantity == -1){ return; }
 				
-
 				model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
 				Part newPart = new Part(partNum, partName, vendor, intQuantity);
 				view2.editEntry(partToEdit, newPart);
-				
+				view.dispose();
 				
 			}
 			else{
@@ -70,6 +69,8 @@ public class AddPartController implements ActionListener{
 				Part part = model.addPart(partNum, partName, vendor, intQuantity);
 				view2.addEntry(part);
 				System.out.println(model.getPartList());
+				view.dispose();
+
 			}
 		
 		}
@@ -77,7 +78,6 @@ public class AddPartController implements ActionListener{
 			view.dispose();
 		}
 		
-		view.dispose();
 	}
 	
 	
