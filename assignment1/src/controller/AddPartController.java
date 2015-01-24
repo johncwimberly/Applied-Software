@@ -174,7 +174,6 @@ public class AddPartController implements ActionListener{
 			view.setInfoLabel("Must enter a Part Name of valid length! (1-255 characters)");
 			return false;
 		}
-
 		return true;
 	}
 	private int verifyEditQuantity(String strQuantity) {
