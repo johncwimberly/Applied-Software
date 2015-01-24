@@ -10,7 +10,6 @@ public class Main {
 		Model model = new Model();
 		MainFrame mainWindow = new MainFrame(model);
 		MainController controller = new MainController(model, mainWindow);
-		mainWindow.setVisible(true);
 		
 	}
 	
