@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import model.Model;
@@ -9,7 +10,7 @@ import model.Part;
 import views.AddPartFrame;
 import views.MainFrame;
 
-public class AddPartController implements ActionListener{
+public class DetailsController implements ActionListener{
 
 	private Model model;
 	private AddPartFrame view;
@@ -20,7 +21,7 @@ public class AddPartController implements ActionListener{
 	int editFlag = 0;
 
 
-	public AddPartController(Model model, AddPartFrame view, MainFrame view2, int flag) {
+	public DetailsController(Model model, AddPartFrame view, MainFrame view2, int flag) {
 
 		this.model = model;
 		this.view = view;
@@ -68,7 +69,15 @@ public class AddPartController implements ActionListener{
 				partList = model.getPartList();
 				
 				
-				Part part = model.addPart(partNum, partName, vendor, intQuantity);
+				Part part = null;
+				
+				try {
+					part = model.addPart(partNum, partName, vendor, intQuantity);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+					return;
+				}
+				
 				view2.addEntry(part);
 				System.out.println(model.getPartList());
 				view.dispose();

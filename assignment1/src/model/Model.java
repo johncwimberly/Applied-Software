@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Model {
@@ -19,8 +20,12 @@ public class Model {
 		partList.add(part2);
 	}
 	
-	public Part addPart(String partNum, String partName, String vendor, int quantity){
+	public Part addPart(String partNum, String partName, String vendor, int quantity) throws IOException{
 		
+		
+		if(partNum.length() < 1 || partNum.length() > 20 || Integer.parseInt(partNum) < 0){
+			throw new IOException();
+		}
 		Part part = new Part(partNum, partName, vendor, quantity);
 		partList.add(part);
 		return part;
