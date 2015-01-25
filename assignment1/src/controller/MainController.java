@@ -68,11 +68,15 @@ public class MainController implements ActionListener, MouseListener {
 		
 		if(viewAction.equals("Edit")){
 			
+			Part editMe = view.getSelectedItem();
+
 			if(view.getPartsList().isSelectionEmpty()){
-				view.setWarningLabel();
+				view.setWarningLabel(1);
+			}
+			else if(mapOfViews.containsKey(editMe)){
+				view.setWarningLabel(2);
 			}
 			else{
-				Part editMe = view.getSelectedItem();
 				view2 = view.createEditPartFrame(editMe);
 				mapOfViews.put(editMe, view2);
 				view.removeWarningLabel();
@@ -85,14 +89,19 @@ public class MainController implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		JList theList = (JList) e.getSource();
 		if (e.getClickCount() == 2) {
-          int index = theList.locationToIndex(e.getPoint());
-          if (index >= 0) {
-            Object obj = theList.getModel().getElementAt(index);
-			Part editMe = view.getSelectedItem();
-			view2 = view.createEditPartFrame((Part)obj);
-			mapOfViews.put(editMe, view2);
-          }
-        }
+				int index = theList.locationToIndex(e.getPoint());
+				if (index >= 0) {
+					Object obj = theList.getModel().getElementAt(index);
+					Part editMe = view.getSelectedItem();
+					if(mapOfViews.containsKey(editMe)){
+					view.setWarningLabel(2);
+				}
+				else{
+					view2 = view.createEditPartFrame((Part)obj);
+					mapOfViews.put(editMe, view2);
+				}
+			}
+		}
 	}
 
 	@Override

@@ -170,8 +170,13 @@ public class MainFrame extends JFrame {
 		return partsList;
 	}
 	
-	public void setWarningLabel(){
-		warnLabel.setText("Must select an item");
+	public void setWarningLabel(int warn){
+		if(warn == 1){
+			warnLabel.setText("Must select an item");
+		}
+		else if(warn == 2){
+			warnLabel.setText("Another window is already open for that part");
+		}
 	}
 
 	public void removeWarningLabel(){
