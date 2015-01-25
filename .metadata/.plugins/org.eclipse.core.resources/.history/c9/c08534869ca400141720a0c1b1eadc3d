@@ -1,0 +1,38 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
+import model.Model;
+
+import org.junit.Test;
+
+public class TestMaxLength {
+
+	@Test(expected = IOException.class)
+	public void testPartNumberLength() throws IOException {
+		
+		Model model = new Model();
+		String partNumber = "";
+		for(int i = 0; i < 21; i ++){
+			partNumber += "a";
+		}
+		System.out.println(partNumber.length());
+		model.addPart(partNumber, "testpart1", "", 1);
+	}
+	
+	@Test(expected = IOException.class)
+	public void testPartNameLength() throws IOException {
+		
+		Model model = new Model();
+		String partName = "";
+		for(int i = 0; i < 255; i ++){
+			partName += "a";
+		}
+		System.out.println(partName.length());
+		model.addPart("234", partName, "", 1);
+	}
+
+
+}

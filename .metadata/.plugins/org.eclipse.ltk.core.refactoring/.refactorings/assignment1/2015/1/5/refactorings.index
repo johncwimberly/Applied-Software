@@ -6,3 +6,5 @@
 1422192567216	Delete element
 1422192734037	Rename type 'TestPartNameDuplicate'
 1422193919219	Rename type 'TestingModel'
+1422195221383	Rename local variable 'partNumber'
+1422195335131	Rename local variable 'partName'

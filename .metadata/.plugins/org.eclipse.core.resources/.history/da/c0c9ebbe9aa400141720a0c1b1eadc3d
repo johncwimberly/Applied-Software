@@ -1,0 +1,19 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
+import model.Model;
+
+import org.junit.Test;
+
+public class TestRequiredFields {
+
+	@Test(expected = IOException.class)
+	public void test() {
+		Model model = new Model();
+		model.addPart("", "testpart1", "", 50);
+	}
+
+}
