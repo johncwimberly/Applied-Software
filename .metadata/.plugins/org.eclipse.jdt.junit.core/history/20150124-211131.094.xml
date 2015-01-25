@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TestOfATest" project="assignment1" tests="1" started="1" failures="1" errors="0" ignored="0">
-  <testsuite name="tests.TestOfATest" time="0.01">
-    <testcase name="test" classname="tests.TestOfATest" time="0.01">
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestPartNameDuplicate" project="assignment1" tests="1" started="1" failures="1" errors="0" ignored="0">
+  <testsuite name="tests.TestPartNameDuplicate" time="0.003">
+    <testcase name="test" classname="tests.TestPartNameDuplicate" time="0.003">
       <failure>java.lang.AssertionError: Not yet implemented&#13;
 	at org.junit.Assert.fail(Assert.java:88)&#13;
-	at tests.TestOfATest.test(TestOfATest.java:31)&#13;
+	at tests.TestPartNameDuplicate.test(TestPartNameDuplicate.java:32)&#13;
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
