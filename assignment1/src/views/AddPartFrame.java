@@ -92,6 +92,7 @@ public class AddPartFrame extends JFrame{
 		                                6, 6);      //xPad, yPad
         setTitle("Add Part");
         setResizable(false);
+        getRootPane().setDefaultButton(confirmButton);
         setVisible(true);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
