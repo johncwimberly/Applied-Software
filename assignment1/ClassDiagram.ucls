@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="views.MainFrame" project="assignment1" 
     file="/assignment1/src/views/MainFrame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="90" width="143" x="89" y="183"/>    
+    <position height="90" width="143" x="86" y="176"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -58,25 +58,25 @@
   <association id="7">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="8" name="view">        
-        <position height="0" width="0" x="51" y="95"/>      
+        <position height="0" width="0" x="48" y="88"/>      
       </attribute>      
       <multiplicity id="9" minimum="0" maximum="1">        
-        <position height="0" width="0" x="51" y="95"/>      
+        <position height="0" width="0" x="48" y="88"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="10">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="11" name="model">        
-        <position height="0" width="0" x="58" y="-390"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="11" name="view2">        
+        <position height="0" width="0" x="48" y="88"/>      
       </attribute>      
       <multiplicity id="12" minimum="0" maximum="1">        
-        <position height="0" width="0" x="58" y="-390"/>      
+        <position height="0" width="0" x="48" y="88"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="13">    
@@ -92,7 +92,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="16">    
-    <end type="SOURCE" refId="2" navigable="false">      
+    <end type="SOURCE" refId="6" navigable="false">      
       <attribute id="17" name="model">        
         <position height="0" width="0" x="58" y="-390"/>      
       </attribute>      
@@ -104,7 +104,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="19">    
-    <end type="SOURCE" refId="1" navigable="false">      
+    <end type="SOURCE" refId="3" navigable="false">      
       <attribute id="20" name="partList">        
         <position height="0" width="0" x="-68" y="-316"/>      
       </attribute>      
@@ -116,19 +116,19 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="22">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="23" name="view">        
-        <position height="0" width="0" x="-5" y="39"/>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="23" name="model">        
+        <position height="0" width="0" x="58" y="-390"/>      
       </attribute>      
       <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-5" y="39"/>      
+        <position height="0" width="0" x="58" y="-390"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="25">    
-    <end type="SOURCE" refId="3" navigable="false">      
+    <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="26" name="partList">        
         <position height="0" width="0" x="-68" y="-316"/>      
       </attribute>      
@@ -141,14 +141,14 @@
   </association>  
   <association id="28">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="29" name="view2">        
-        <position height="0" width="0" x="51" y="95"/>      
+      <attribute id="29" name="view">        
+        <position height="0" width="0" x="-5" y="39"/>      
       </attribute>      
       <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="51" y="95"/>      
+        <position height="0" width="0" x="-5" y="39"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

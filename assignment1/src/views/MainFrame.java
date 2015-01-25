@@ -101,7 +101,7 @@ public class MainFrame extends JFrame {
 		buttonPanel.add(editPartButton);
 
 		
-		listTitle = new JLabel("This is the area for jlist to go");
+		listTitle = new JLabel("Welcome!");
 		
 		bottomPanel = new JPanel(new GridLayout(2,1));
 		
@@ -126,6 +126,7 @@ public class MainFrame extends JFrame {
 		pack();
 		setVisible(true);
 		setTitle("Inventory");
+		setResizable(false);
 		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -171,7 +172,11 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void setWarningLabel(int warn){
-		if(warn == 1){
+		
+		if(warn == 0){
+			warnLabel.setText("");
+		}
+		else if(warn == 1){
 			warnLabel.setText("Must select an item");
 		}
 		else if(warn == 2){

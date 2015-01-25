@@ -102,6 +102,9 @@ public class MainController implements ActionListener, MouseListener {
 				}
 			}
 		}
+		if(e.getClickCount() == 1){
+			view.setWarningLabel(0);
+		}
 	}
 
 	@Override
