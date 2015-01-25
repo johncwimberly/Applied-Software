@@ -30,6 +30,9 @@ public class Model {
 		else if(vendor.length() > 255){
 			throw new IOException();
 		}
+		else if(quantity < 1){
+			throw new IOException();
+		}
 		Part part = new Part(partNum, partName, vendor, quantity);
 		partList.add(part);
 		return part;
