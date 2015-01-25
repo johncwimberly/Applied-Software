@@ -196,4 +196,8 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+	public void mainMouseListener(MainController mainController) {
+		partsList.addMouseListener(mainController);
+	}
+
 }

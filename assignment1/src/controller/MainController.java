@@ -2,14 +2,18 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JList;
+
 import views.*;
 import model.*;
 
-public class MainController implements ActionListener {
+public class MainController implements ActionListener, MouseListener {
 	
 	private Model model;
 	private MainFrame view;
@@ -23,6 +27,7 @@ public class MainController implements ActionListener {
 		mapOfViews = new HashMap<Part, AddPartFrame>();
 		view.addTestData();
 		view.mainViewBtnListener(this);
+		view.mainMouseListener(this);
 	}
 
 	/*
@@ -73,6 +78,42 @@ public class MainController implements ActionListener {
 				view.removeWarningLabel();
 			}
 		}
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		JList theList = (JList) e.getSource();
+		if (e.getClickCount() == 2) {
+          int index = theList.locationToIndex(e.getPoint());
+          if (index >= 0) {
+            Object obj = theList.getModel().getElementAt(index);
+			Part editMe = view.getSelectedItem();
+			view2 = view.createEditPartFrame((Part)obj);
+			mapOfViews.put(editMe, view2);
+          }
+        }
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
