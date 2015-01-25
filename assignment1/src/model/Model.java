@@ -20,10 +20,14 @@ public class Model {
 		partList.add(part2);
 	}
 	
-	public Part addPart(String partNum, String partName, String vendor, int quantity) throws IOException{
-		
-		
-		if(partNum.length() < 1 || partNum.length() > 20 || Integer.parseInt(partNum) < 0){
+	public Part addPart(String partNum, String partName, String vendor, int quantity) throws IOException{		
+		if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
+			throw new IOException();
+		}
+		else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*") || containsName(partName)){
+			throw new IOException();
+		}
+		else if(vendor.length() > 255){
 			throw new IOException();
 		}
 		Part part = new Part(partNum, partName, vendor, quantity);
@@ -31,6 +35,17 @@ public class Model {
 		return part;
 	}
 	
+	private boolean containsName(String partName) {
+		
+		for(Part part : partList){
+			if(partName.equals(part.getPartName())){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
 	public void deletePart(Part part){
 		System.out.println(partList.contains(part));
 		partList.remove(part);

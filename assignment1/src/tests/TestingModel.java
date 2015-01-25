@@ -2,14 +2,21 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import model.Model;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestPartNumberDuplicate {
+public class TestingModel {
 
+	Model model = new Model();
+
+	//Testing
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,15 +27,16 @@ public class TestPartNumberDuplicate {
 
 	@Before
 	public void setUp() throws Exception {
+		model.addPart("5", "testpart1", "", 123);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	@Test(expected = IOException.class)
+	public void testDuplicatePartName() throws IOException {
+			model.addPart("3", "testpart1", "vendor2", 12);
 	}
 
 }
