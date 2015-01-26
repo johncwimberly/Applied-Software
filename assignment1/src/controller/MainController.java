@@ -55,6 +55,11 @@ public class MainController implements ActionListener, MouseListener {
 			 * 
 			 */
 			Part deleteMe = view.getSelectedItem();
+			if(deleteMe == null){
+				view.setWarningLabel(3);
+				return;
+			}
+			view.setWarningLabel(0);
 			model.deletePart(deleteMe);
 			view.deleteEntry(deleteMe);
 			if(model.getMapOfViews().containsKey(deleteMe)){
