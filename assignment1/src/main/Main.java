@@ -1,3 +1,7 @@
+/*
+ * CS 4743 Assignment 1 by Arturo Garcia and John Wimberly
+ */
+
 package main;
 
 import controller.*;

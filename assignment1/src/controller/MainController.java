@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-
 import javax.swing.JList;
 
 import views.*;
@@ -18,13 +15,11 @@ public class MainController implements ActionListener, MouseListener {
 	private Model model;
 	private MainFrame view;
 	private AddPartFrame view2;
-	private Map<Part, AddPartFrame> mapOfViews;
-	
 	public MainController(Model model, MainFrame view) {
 
 		this.model = model;
 		this.view = view;
-		mapOfViews = new HashMap<Part, AddPartFrame>();
+		new HashMap<Part, AddPartFrame>();
 		view.addTestData();
 		view.mainViewBtnListener(this);
 		view.mainMouseListener(this);

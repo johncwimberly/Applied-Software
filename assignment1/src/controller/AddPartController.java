@@ -6,8 +6,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
-
 import model.Model;
 import model.Part;
 import views.AddPartFrame;
@@ -19,7 +17,6 @@ public class AddPartController implements ActionListener, WindowListener{
 	private AddPartFrame view;
 	private MainFrame view2;
 	private ArrayList<Part> partList = null;
-	private Map<Part, AddPartFrame> mapOfViews;
 	
 	Part partToEdit;
 	int editFlag = 0;

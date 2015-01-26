@@ -1,16 +1,8 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 
 import model.Model;
-import model.Part;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestDuplicateName {
