@@ -60,7 +60,7 @@ public class AddPartController implements ActionListener{
 				Part newPart = model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
 				view2.editEntry(partToEdit, newPart);
 				System.out.println(model.getPartList());
-				model.removeMapping(partToEdit, view);
+				model.getMapOfViews().remove(partToEdit, view);
 				view.dispose();
 				
 			}

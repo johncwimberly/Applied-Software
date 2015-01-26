@@ -78,7 +78,7 @@ public class MainController implements ActionListener, MouseListener {
 			}
 			else{
 				view2 = view.createEditPartFrame(editMe);
-				model.setMapOfViews(editMe, view2);
+				model.getMapOfViews().put(editMe, view2);
 				view.removeWarningLabel();
 			}
 		}
@@ -93,12 +93,12 @@ public class MainController implements ActionListener, MouseListener {
 			if (index >= 0) {
 				Object obj = theList.getModel().getElementAt(index);
 				Part editMe = view.getSelectedItem();
-				if(mapOfViews.containsKey(editMe)){
+				if(model.getMapOfViews().containsKey(editMe)){
 					view.setWarningLabel(2);
 				}
 				else{
 					view2 = view.createEditPartFrame((Part)obj);
-					mapOfViews.put(editMe, view2);
+					model.getMapOfViews().put(editMe, view2);
 				}
 			}
 		}
