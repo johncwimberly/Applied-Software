@@ -178,7 +178,7 @@ public class MainFrame extends JFrame {
 			warnLabel.setText("Must select an item");
 		}
 		else if(warn == 2){
-			warnLabel.setText("Another window is already open for that part");
+			warnLabel.setText("A window is already open for that part");
 		}
 		else if(warn == 3){
 			warnLabel.setText("Please select a part to delete");

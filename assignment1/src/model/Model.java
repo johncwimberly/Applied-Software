@@ -62,7 +62,20 @@ public class Model {
 	}
 	
 	public Part editPart(Part part, String partNum, String partName, 
-			String vendor, int quantity){
+			String vendor, int quantity) throws IOException{
+		
+		if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
+			throw new IOException();
+		}
+		else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*") || containsName(partName)){
+			throw new IOException();
+		}
+		else if(vendor.length() > 255){
+			throw new IOException();
+		}
+		else if(quantity < 0){
+			throw new IOException();
+		}
 		
 		part.setPartName(partName);
 		part.setPartNum(partNum);
