@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,7 +13,7 @@ import model.Part;
 import views.AddPartFrame;
 import views.MainFrame;
 
-public class AddPartController implements ActionListener{
+public class AddPartController implements ActionListener, WindowListener{
 
 	private Model model;
 	private AddPartFrame view;
@@ -34,6 +36,7 @@ public class AddPartController implements ActionListener{
 		
 		
 		view.addPartFrameButtonListener(this);
+		view.addWindowListener(this);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -228,6 +231,35 @@ public class AddPartController implements ActionListener{
 			view.setInfoLabel("Quantity must contain only numbers!");;
 		}
 		return -1;
+	}
+
+	@Override
+	public void windowActivated(WindowEvent arg0) {		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent arg0) {
+	}
+
+	@Override
+	public void windowClosing(WindowEvent windowEvent) {
+		model.getMapOfViews().remove(partToEdit, view);
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent arg0) {		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent arg0) {		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent arg0) {
+	}
+	
+	@Override
+	public void windowOpened(WindowEvent arg0) {
 	}
 	
 	
