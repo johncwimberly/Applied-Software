@@ -2,6 +2,10 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import views.AddPartFrame;
 
 public class Model {
 
@@ -11,9 +15,12 @@ public class Model {
 	private Part part1 = new Part("1", "screw", "Stuff and Stuff", 4);
 	private Part part2 = new Part("2", "bolt", "Parts R Us", 4);
 
+	private Map<Part, AddPartFrame> mapOfViews = null;
+
 	public Model(){
 		
 		partList = new ArrayList<Part>();
+		mapOfViews = new HashMap<Part, AddPartFrame>();
 		
 //		Test Parts added to list
 		partList.add(part1);
@@ -77,4 +84,17 @@ public class Model {
 	
 		return listString;
 	}
+
+	public Map<Part, AddPartFrame> getMapOfViews(){
+		return mapOfViews;
+	}
+	
+	public void setMapOfViews(Part part, AddPartFrame view){
+		mapOfViews.put(part, view);
+	}
+	
+	public void removeMapping(Part part, AddPartFrame view){
+		mapOfViews.remove(part, view);
+	}
+
 }

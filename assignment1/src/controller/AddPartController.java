@@ -4,24 +4,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.Model;
 import model.Part;
 import views.AddPartFrame;
 import views.MainFrame;
 
-public class DetailsController implements ActionListener{
+public class AddPartController implements ActionListener{
 
 	private Model model;
 	private AddPartFrame view;
 	private MainFrame view2;
 	private ArrayList<Part> partList = null;
+	private Map<Part, AddPartFrame> mapOfViews;
 	
 	Part partToEdit;
 	int editFlag = 0;
 
 
-	public DetailsController(Model model, AddPartFrame view, MainFrame view2, int flag) {
+	public AddPartController(Model model, AddPartFrame view, MainFrame view2, int flag) {
 
 		this.model = model;
 		this.view = view;
@@ -58,6 +60,7 @@ public class DetailsController implements ActionListener{
 				Part newPart = model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
 				view2.editEntry(partToEdit, newPart);
 				System.out.println(model.getPartList());
+				model.removeMapping(partToEdit, view);
 				view.dispose();
 				
 			}
@@ -86,6 +89,7 @@ public class DetailsController implements ActionListener{
 		
 		}
 		if(viewAction.equalsIgnoreCase("Cancel")){
+			model.removeMapping(partToEdit, view);
 			view.dispose();
 		}
 		

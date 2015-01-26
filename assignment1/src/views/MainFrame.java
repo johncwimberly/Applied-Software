@@ -11,14 +11,12 @@ import controller.*;
 import model.*;
 
 import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 
@@ -153,12 +151,12 @@ public class MainFrame extends JFrame {
 	
 	public void createAddPartFrame(){
 		AddPartFrame view = new AddPartFrame();
-		new DetailsController(model, view, this, 0);
+		new AddPartController(model, view, this, 0);
 	}
 	
 	public AddPartFrame createEditPartFrame(Part part){
 		AddPartFrame view = new AddPartFrame();
-		DetailsController controller = new DetailsController(model, view, this, 1);
+		AddPartController controller = new AddPartController(model, view, this, 1);
 		view.setNameField(part.getPartName());
 		view.setNumberField(part.getPartNum());
 		view.setQuantityField(part.getQuantity());
