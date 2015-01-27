@@ -68,23 +68,36 @@ public class Model {
 	public Part editPart(Part part, String partNum, String partName, 
 			String vendor, int quantity) throws IOException{
 		
-		if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
-			System.out.println("number 1");
-			throw new IOException();
+
+		if(part.getPartName().equals(partName)){
+			if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
+				throw new IOException();
+			}
+			else if(vendor.length() > 255){
+				throw new IOException();
+			}
+			else if(quantity < 0){
+				throw new IOException();
+			}
+
 		}
-		else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*") || part.getPartName().equals(partName)){
-			System.out.println("number 2");
-			throw new IOException();
+
+		else{
+			if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
+				throw new IOException();
+			}
+			else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*") || containsName(partName)){
+				throw new IOException();
+			}
+			else if(vendor.length() > 255){
+				throw new IOException();
+			}
+			else if(quantity < 0){
+				throw new IOException();
+			}
+
 		}
-		else if(vendor.length() > 255){
-			System.out.println("number 3");
-			throw new IOException();
-		}
-		else if(quantity < 0){
-			System.out.println("number 4");
-			throw new IOException();
-		}
-		
+
 		part.setPartName(partName);
 		part.setPartNum(partNum);
 		part.setQuantity(quantity);
