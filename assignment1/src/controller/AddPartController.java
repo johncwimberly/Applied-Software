@@ -62,6 +62,7 @@ public class AddPartController implements ActionListener, WindowListener{
 				try {
 					newPart = model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
 				} catch (IOException e1) {
+					System.out.println("THIS IS WHERE THE ERROR IS BEING CAUGHT");
 					return;
 				}
 				
