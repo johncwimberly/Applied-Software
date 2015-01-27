@@ -64,7 +64,7 @@ public class Model {
 	public Part editPart(Part part, String partNum, String partName, 
 			String vendor, int quantity) throws IOException{
 		
-		if(containsName(partName)){
+		if(part.getPartName().equals(partName)){
 			if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
 				throw new IOException();
 			}
@@ -79,7 +79,7 @@ public class Model {
 			if(partNum.length() < 1 || partNum.length() > 20 || partNum.matches(".*\\s.*")){
 				throw new IOException();
 			}
-			else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*")){
+			else if(partName.length() < 1 || partName.length() > 255 || partName.matches(".*\\s.*") || containsName(partName)){
 				throw new IOException();
 			}
 			else if(vendor.length() > 255){
