@@ -85,7 +85,7 @@ public class Model {
 			else if(vendor.length() > 255){
 				throw new IOException();
 			}
-			else if(quantity < 1){
+			else if(quantity < 0){
 				throw new IOException();
 			}
 
