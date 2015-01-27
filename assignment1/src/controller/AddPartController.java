@@ -59,11 +59,11 @@ public class AddPartController implements ActionListener, WindowListener{
 				
 				Part newPart = null;
 				
-				try {
+			//	try {
 					newPart = model.editPart(partToEdit, partNum, partName, vendor, intQuantity);
-				} catch (IOException e1) {
-					return;
-				}
+//				} catch (IOException e1) {
+//					return;
+//				}
 				
 				view2.editEntry(partToEdit, newPart);
 				System.out.println(model.getPartList());
